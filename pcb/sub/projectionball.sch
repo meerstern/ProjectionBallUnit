@@ -1,0 +1,20 @@
+EESchema Schematic File Version 4
+LIBS:projectionball-cache
+EELAYER 29 0
+EELAYER END
+$Descr A3 16535 11693
+encoding utf-8
+Sheet 1 1
+Title "ProjectionBall Plate"
+Date "2023-01-11"
+Rev "v7.2"
+Comp "Crescent"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+NoConn ~ 15400 -5275
+Text Notes 7350 5650 0    197  ~ 0
+No Circuit
+$EndSCHEMATC

@@ -1,0 +1,55 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# MOSFET-NCHANNEL_D-PAK-RESCUE-projectionball_v3.00-projectionball_v3.00-rescue
+#
+DEF MOSFET-NCHANNEL_D-PAK-RESCUE-projectionball_v3.00-projectionball_v3.00-rescue Q 0 40 N N 1 L N
+F0 "Q" 200 100 50 H V L BNN
+F1 "MOSFET-NCHANNEL_D-PAK-RESCUE-projectionball_v3.00-projectionball_v3.00-rescue" 200 0 50 H V L BNN
+F2 "Simplex-DiscreteSemi_D-PAK_TO252AA" 30 150 20 H I C CNN
+F3 "" 0 0 60 H V C CNN
+$FPLIST
+ *D-PAK_TO252AA*
+$ENDFPLIST
+DRAW
+C 0 -75 5 1 1 0 F
+C 0 75 5 1 1 0 F
+T 0 -34 116 32 0 1 0 D Normal 0 C C
+T 0 -184 -34 32 0 1 0 G Normal 0 C C
+T 0 -34 -124 32 0 1 0 S Normal 0 C C
+S -110 -100 -86 -50 1 1 0 F
+S -110 -35 -86 35 1 1 0 F
+S -110 50 -86 100 1 1 0 F
+P 2 1 0 0 -127 0 -200 0 N
+P 2 1 0 0 -125 94 -125 -94 N
+P 2 1 0 0 -91 -75 0 -75 N
+P 2 1 0 0 -83 0 -33 -20 N
+P 2 1 0 0 -73 0 -38 -10 N
+P 2 1 0 0 -38 -10 -38 0 N
+P 2 1 0 0 -38 0 -48 0 N
+P 2 1 0 0 -38 0 0 0 N
+P 2 1 0 0 -38 10 -73 0 N
+P 2 1 0 0 -33 -20 -33 20 N
+P 2 1 0 0 -33 20 -83 0 N
+P 2 1 0 0 0 -75 0 -100 N
+P 2 1 0 0 0 -75 100 -75 N
+P 2 1 0 0 0 -74 0 0 N
+P 2 1 0 0 0 75 -90 74 N
+P 2 1 0 0 0 75 100 75 N
+P 2 1 0 0 0 100 0 75 N
+P 2 1 0 0 75 -25 125 -25 N
+P 2 1 0 0 75 30 65 20 N
+P 2 1 0 0 75 30 100 30 N
+P 2 1 0 0 100 -27 100 -75 N
+P 2 1 0 0 100 30 75 -25 N
+P 2 1 0 0 100 30 125 30 N
+P 2 1 0 0 100 75 100 30 N
+P 2 1 0 0 125 -25 100 30 N
+P 2 1 0 0 125 30 135 40 N
+X G 1 -300 0 100 R 40 40 1 1 P
+X S 2 0 -200 100 U 40 40 1 1 P
+X D 3 0 200 100 D 40 40 1 1 P
+ENDDRAW
+ENDDEF
+#
+#End Library
