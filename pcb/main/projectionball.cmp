@@ -1,0 +1,523 @@
+Cmp-Mod V01 Created by PcbNew   date = 2016/05/25 0:15:21
+
+BeginCmp
+TimeStamp = 569E0C50
+Path = /56861F1E
+Reference = C1;
+ValeurCmp = 0.1uF/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C56
+Path = /5687157E
+Reference = C2;
+ValeurCmp = 0.1uF/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C5C
+Path = /568624E7
+Reference = C3;
+ValeurCmp = 10uF/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C62
+Path = /56868559
+Reference = C4;
+ValeurCmp = 10uF/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C68
+Path = /569D2A1E
+Reference = C5;
+ValeurCmp = 10uF/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C74
+Path = /56876CEF
+Reference = C7;
+ValeurCmp = 0.1uF/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C7A
+Path = /5688E410
+Reference = C8;
+ValeurCmp = 0.1uF/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C80
+Path = /568921DF
+Reference = C9;
+ValeurCmp = 0.1uF/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C86
+Path = /5686161E
+Reference = C10;
+ValeurCmp = 470uF/CPOL-EU150CLZ-1010;
+IdModule  = rcl:rcl-153CLV-0810;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C8C
+Path = /5688751C
+Reference = C11;
+ValeurCmp = 0.1uF/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C93
+Path = /5685649D
+Reference = IC1;
+ValeurCmp = NJM2845MABDT;
+IdModule  = v-reg:v-reg-DPACK;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0CC3
+Path = /568568CA
+Reference = IC2;
+ValeurCmp = DSPIC33FJ64MC804-PT;
+IdModule  = dspic:microchip-dspic33fjxxmc-TQFP44;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0CDF
+Path = /56856449
+Reference = IC3;
+ValeurCmp = TB6612FNG;
+IdModule  = tb6612:tb6612-SSOP24;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0CE8
+Path = /5686BA17
+Reference = JP1;
+ValeurCmp = ICSP/PINHD-1X5;
+IdModule  = pin-head:pinhead-1X05;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0CF0
+Path = /5688B9F5
+Reference = JP2;
+ValeurCmp = I2C/PINHD-1X4;
+IdModule  = pin-head:pinhead-1X04;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0CF9
+Path = /568744D7
+Reference = JP3;
+ValeurCmp = opt/PINHD-1X5;
+IdModule  = pin-head:pinhead-1X05;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D01
+Path = /56875174
+Reference = JP4;
+ValeurCmp = PINHD-1X4;
+IdModule  = pin-head:pinhead-1X04;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D08
+Path = /56891046
+Reference = JP5;
+ValeurCmp = UART/PINHD-1X3;
+IdModule  = pin-head:pinhead-1X03;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D0E
+Path = /5688C9E7
+Reference = JP6;
+ValeurCmp = LSR/PINHD-1X2;
+IdModule  = pin-head:pinhead-1X02;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D18
+Path = /5686F50E
+Reference = JP7;
+ValeurCmp = ENC1/PINHD-1X6;
+IdModule  = pin-head:pinhead-1X06;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D22
+Path = /5686F789
+Reference = JP8;
+ValeurCmp = ENC2/PINHD-1X6;
+IdModule  = pin-head:pinhead-1X06;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D28
+Path = /5686B21A
+Reference = JP9;
+ValeurCmp = M1/PINHD-1X2;
+IdModule  = pin-head:pinhead-1X02;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D2E
+Path = /5686B57D
+Reference = JP10;
+ValeurCmp = M2/PINHD-1X2;
+IdModule  = pin-head:pinhead-1X02;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D34
+Path = /568569B9
+Reference = LED1;
+ValeurCmp = Blue/1608;
+IdModule  = generic:generic-LED1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D3A
+Path = /56869803
+Reference = LED2;
+ValeurCmp = Red/1608;
+IdModule  = generic:generic-LED1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D47
+Path = /56856C77
+Reference = M1;
+ValeurCmp = MICRO-USB-ZX62R-B-5P;
+IdModule  = con-hirose:con-hirose-ZX62R-B-5P;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D4C
+Path = /56867606
+Reference = PAD1;
+ValeurCmp = M11/SMD5;
+IdModule  = wirepad:wirepad-SMD2_54-5_08;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D51
+Path = /56867937
+Reference = PAD2;
+ValeurCmp = M12/SMD5;
+IdModule  = wirepad:wirepad-SMD2_54-5_08;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D56
+Path = /56867A03
+Reference = PAD3;
+ValeurCmp = M22/SMD5;
+IdModule  = wirepad:wirepad-SMD2_54-5_08;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D5B
+Path = /56867AA8
+Reference = PAD4;
+ValeurCmp = M21/SMD5;
+IdModule  = wirepad:wirepad-SMD2_54-5_08;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D68
+Path = /56866CF5
+Reference = R1;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D6E
+Path = /56866D66
+Reference = R2;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D74
+Path = /5686CE1C
+Reference = R3;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D7B
+Path = /56872EAE
+Reference = R4;
+ValeurCmp = CEN1/R-TRIMMCVR42A;
+IdModule  = rcl:rcl-RTRIMCVR42A;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D82
+Path = /568730CB
+Reference = R5;
+ValeurCmp = CEN2/R-TRIMMCVR42A;
+IdModule  = rcl:rcl-RTRIMCVR42A;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D88
+Path = /56869795
+Reference = R6;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D8E
+Path = /5686981C
+Reference = R7;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D94
+Path = /569D07B2
+Reference = R8;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D9A
+Path = /569D0AFC
+Reference = R9;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DA0
+Path = /569D1150
+Reference = R10;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DA6
+Path = /568629E6
+Reference = R11;
+ValeurCmp = 330/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DAC
+Path = /569D120A
+Reference = R12;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DB2
+Path = /56865120
+Reference = R13;
+ValeurCmp = 5.1k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DB8
+Path = /568651C8
+Reference = R14;
+ValeurCmp = 5.1k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DBE
+Path = /5688A859
+Reference = R15;
+ValeurCmp = 1k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DC4
+Path = /5688ABAB
+Reference = R16;
+ValeurCmp = 10k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DCA
+Path = /56869C41
+Reference = R17;
+ValeurCmp = 330/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DD3
+Path = /56856A21
+Reference = S1;
+ValeurCmp = TL32YO;
+IdModule  = switch:switch-TL3XYO;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DDC
+Path = /568658F2
+Reference = S2;
+ValeurCmp = PAT1/TL32YO;
+IdModule  = switch:switch-TL3XYO;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DE5
+Path = /568659B8
+Reference = S3;
+ValeurCmp = PAT2/TL32YO;
+IdModule  = switch:switch-TL3XYO;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DEE
+Path = /56856A66
+Reference = S4;
+ValeurCmp = MODE1/TL32YO;
+IdModule  = switch:switch-TL3XYO;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DFF
+Path = /568569F0
+Reference = S6;
+ValeurCmp = RST/10-XX;
+IdModule  = switch-omron:switch-omron-B3F-10XX;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0E15
+Path = /56856197
+Reference = SDCARD1;
+ValeurCmp = DM1B-DSF-PEJ;
+IdModule  = sd-card:sd-card-DM1B-DSF-PEJ;
+EndCmp
+
+BeginCmp
+TimeStamp = 569F8DF8
+Path = 
+Reference = REF1;
+ValeurCmp = MountingHole_3mm;
+IdModule  = Mounting_Holes:MountingHole_3mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 569F8E03
+Path = 
+Reference = REF2;
+ValeurCmp = MountingHole_3mm;
+IdModule  = Mounting_Holes:MountingHole_3mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 569F8E0E
+Path = 
+Reference = REF4;
+ValeurCmp = MountingHole_3mm;
+IdModule  = Mounting_Holes:MountingHole_3mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 569F8E19
+Path = 
+Reference = REF3;
+ValeurCmp = MountingHole_3mm;
+IdModule  = Mounting_Holes:MountingHole_3mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 569F8E24
+Path = 
+Reference = REF5;
+ValeurCmp = MountingHole_3mm;
+IdModule  = Mounting_Holes:MountingHole_3mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0D62
+Path = /568573C0
+Reference = Q1;
+ValeurCmp = MOSFET-NCHANNEL_D-PAK;
+IdModule  = Simplex-DiscreteSemi:Simplex-DiscreteSemi-D-PAK_TO252AA;
+EndCmp
+
+BeginCmp
+TimeStamp = 56F83D5B
+Path = /56F80108
+Reference = JP11;
+ValeurCmp = REG/PINHD-1X3;
+IdModule  = pin-head:pinhead-1X03;
+EndCmp
+
+BeginCmp
+TimeStamp = 56F83D61
+Path = /56F7F287
+Reference = R18;
+ValeurCmp = 1k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 56F83D67
+Path = /56F7F167
+Reference = R19;
+ValeurCmp = 1k/1608;
+IdModule  = generic:generic-SMD1608;
+EndCmp
+
+BeginCmp
+TimeStamp = 56F8708C
+Path = 
+Reference = REF**;
+ValeurCmp = MountingHole_3mm;
+IdModule  = Mounting_Holes:MountingHole_3mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0C6E
+Path = /568615E1
+Reference = C6;
+ValeurCmp = 47uF/1010;
+IdModule  = rcl:rcl-153CLV-0810;
+EndCmp
+
+BeginCmp
+TimeStamp = 569E0DF7
+Path = /56868C6C
+Reference = S5;
+ValeurCmp = MODE2/TL32YO;
+IdModule  = switch:switch-TL3XYO;
+EndCmp
+
+EndListe
