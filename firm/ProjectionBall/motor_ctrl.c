@@ -29,18 +29,19 @@
 
 
 
-#define X_CENTER0		2500//2500
-#define X_CENTER1		2000//2000
-#define PWM_MAX_DUTY	2048
+#define X_CENTER0			2500//2500
+#define X_CENTER1			2000//2000
+#define PWM_MAX_DUTY			2048
 
-#define T_LIMIT_MAXERR_N	-1600
-#define T_LIMIT_MAXERR_P	+1600
-#define T_LIMIT_DIV			50	
-#define T_LIMIT_START_CNT	300
+#define T_LIMIT_MAXERR_N		-1000
+#define T_LIMIT_MAXERR_P		+1000
+#define T_LIMIT_DIV			20	
+#define T_LIMIT_START_CNT		800
 
 #ifdef ENABLE_RUNAWAY_DETECTION
-	#define MAX_ERR_COUNT		500
+	#define MAX_ERR_COUNT		800
 	#define POS_ERR_RANGE		100
+	#define T_LIMIT_DIV2		10	
 #endif
 
 struct MotorCtrlStruct		motorControl[2];
@@ -390,7 +391,7 @@ inline static void calcTrqCommand()
 	//Torque Limit for suppress runaway				
 	 if( motorControl[0].x_err>T_LIMIT_MAXERR_P || motorControl[0].x_err<T_LIMIT_MAXERR_N )
 	 {
-		motorControl[0].trq_out=motorControl[0].trq_out/T_LIMIT_DIV;
+		motorControl[0].trq_out=motorControl[0].trq_out/T_LIMIT_DIV2;
 		motorControl[0].x_sum = 0;
 		motorControl[0].dx_err = 0;
 	 }
@@ -398,7 +399,7 @@ inline static void calcTrqCommand()
 	
 	 if( motorControl[1].x_err>T_LIMIT_MAXERR_P || motorControl[1].x_err<T_LIMIT_MAXERR_N )
 	 {
-		motorControl[1].trq_out=motorControl[1].trq_out/T_LIMIT_DIV;
+		motorControl[1].trq_out=motorControl[1].trq_out/T_LIMIT_DIV2;
 		motorControl[1].x_sum = 0;	
 		motorControl[1].dx_err = 0;	
 	 }
