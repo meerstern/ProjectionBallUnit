@@ -13,5 +13,6 @@
 void ConsoleGetString();
 void OnUartRx();
 bool IsResetEnable();
+void ClearBuffer();
 
 #endif

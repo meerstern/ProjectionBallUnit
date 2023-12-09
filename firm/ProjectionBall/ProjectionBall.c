@@ -165,7 +165,7 @@ void ioInit()
     gpio_put(PIN_ERR, 0);
 
     // I2C Initialisation at 100Khz
-    i2c_init(I2C_PORT, 100*1000);    
+    i2c_init(i2c0, 200*1000);    
     gpio_set_function(I2C_SDA, GPIO_FUNC_I2C);
     gpio_set_function(I2C_SCL, GPIO_FUNC_I2C);
     gpio_pull_up(I2C_SDA);
@@ -232,6 +232,7 @@ int main()
 	//Update HW RTC
 	UpdateHwRtc();
 	RestoreUserData();
+	ClearBuffer();
 	sleep_ms(500);	
 
 	multicore_launch_core1(core1_main);		

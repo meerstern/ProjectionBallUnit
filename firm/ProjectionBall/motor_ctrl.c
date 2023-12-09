@@ -20,28 +20,28 @@
 #include "rtc_rv8803.h"
 #include "rtc_sd30XX.h"
 
-#define 	MAX_LOG_LEN		1500
+#define 	MAX_LOG_LEN				1500
 
 #ifdef ENABLE_STEP_CMD
-	#define 	STEP_START_LEN	500
-	#define 	STEP_END_LEN	1000
+	#define 	STEP_START_LEN		500
+	#define 	STEP_END_LEN		1000
 #endif
 
 
 
-#define X_CENTER0			2500//2500
-#define X_CENTER1			2000//2000
-#define PWM_MAX_DUTY			2048
+#define X_CENTER0					2500//2500
+#define X_CENTER1					2000//2000
+#define PWM_MAX_DUTY				2048
 
-#define T_LIMIT_MAXERR_N		-1000
-#define T_LIMIT_MAXERR_P		+1000
-#define T_LIMIT_DIV			20	
-#define T_LIMIT_START_CNT		800
+#define T_LIMIT_MAXERR_N			-1000
+#define T_LIMIT_MAXERR_P			+1000
+#define T_LIMIT_DIV					20	
+#define T_LIMIT_START_CNT			800
 
 #ifdef ENABLE_RUNAWAY_DETECTION
-	#define MAX_ERR_COUNT		800
-	#define POS_ERR_RANGE		100
-	#define T_LIMIT_DIV2		10	
+	#define MAX_ERR_COUNT			800
+	#define POS_ERR_RANGE			100
+	#define T_LIMIT_DIV2			10	
 #endif
 
 struct MotorCtrlStruct		motorControl[2];
@@ -78,7 +78,7 @@ void MotorCtrlInit()
 	MA732WriteReg(PIN_CS1, MA732_REG_FW,84);//def:64:84::80
 	MA732WriteReg(PIN_CS2, MA732_REG_FW,84);//def:64:84::80
 #endif
-	
+
 	motorControl[0].x_cen=X_CENTER0;
 	motorControl[1].x_cen=X_CENTER1;
 	
@@ -247,7 +247,7 @@ void SetProjectionAngle( int32_t deg )
 	prjAngle = deg/((int)360/TRIG_FUNCTION_LEN);
 	prjAngle = prjAngle*((int)360/TRIG_FUNCTION_LEN);
 	uPrjAngle = prjAngle/((int)360/TRIG_FUNCTION_LEN);
-	SetRtcRam(PRJ_DEG_SRAM, uPrjAngle); 
+	SetRtcRam(PRJ_DEG_SRAM, uPrjAngle);
 }
 
 void GetProjectionAngle(int32_t *deg)
@@ -301,10 +301,10 @@ inline static void calcResponse()
 inline static void getCommand()
 {
 	//Command
-	motorControl[0].p_cmd=0;
-	motorControl[1].p_cmd=0;
-	motorControl[0].dx_cmd=0;
-	motorControl[1].dx_cmd=0;
+	motorControl[0].p_cmd = 0;
+	motorControl[1].p_cmd = 0;
+	motorControl[0].dx_cmd = 0;
+	motorControl[1].dx_cmd = 0;
 	motorControl[0].enableLaser = 0;
 
 	GetPathCmd(&motorControl[0].p_cmd, &motorControl[1].p_cmd, &motorControl[0].enableLaser );
@@ -312,13 +312,13 @@ inline static void getCommand()
 #ifdef ENABLE_STEP_CMD
 	if(ControlCount>STEP_START_LEN && ControlCount<STEP_END_LEN)
 	{
-		motorControl[0].p_cmd=-150;
-		motorControl[1].p_cmd=-150;		
+		motorControl[0].p_cmd = -150;
+		motorControl[1].p_cmd = -150;		
 	}
 	else if(ControlCount>STEP_END_LEN)
 	{
-		motorControl[0].p_cmd=0;
-		motorControl[1].p_cmd=0;
+		motorControl[0].p_cmd = 0;
+		motorControl[1].p_cmd = 0;
 	}
 #endif
 
@@ -327,9 +327,15 @@ inline static void getCommand()
 	motorControl[1].p_cmd = CalcSinVal(uPrjAngle, motorControl[0].p_cmd) + CalcCosVal(uPrjAngle, motorControl[1].p_cmd);
 #endif
 
+#ifdef ENABLE_CALIBRATION_MODE
+	motorControl[0].p_cmd = 0;
+	motorControl[1].p_cmd = 0;
+	motorControl[0].enableLaser = 1;
+#endif
+
 	//Set Command Value
-	motorControl[0].x_cmd=motorControl[0].x_cen-motorControl[0].p_cmd;
-	motorControl[1].x_cmd=motorControl[1].x_cen-motorControl[1].p_cmd;
+	motorControl[0].x_cmd = motorControl[0].x_cen - motorControl[0].p_cmd;
+	motorControl[1].x_cmd = motorControl[1].x_cen - motorControl[1].p_cmd;
 		
 }
 

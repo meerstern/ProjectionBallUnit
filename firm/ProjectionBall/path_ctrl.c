@@ -25,7 +25,7 @@
 #include "flash_ctrl.h"
 
 #define REPEAT_NUM  5
-#define IN_POS_MAX  50
+#define IN_POS_MAX  48
 #define IN_POS_MIN  -IN_POS_MAX
 
 
@@ -350,13 +350,13 @@ void GetPauseTime(uint16_t *time)
 void TimerEnable()
 {
     enablePauseResume = true;
-    SetRtcRam(TIMER_STAT_SRAM, enablePauseResume);  
+    SetRtcRam(TIMER_STAT_SRAM, enablePauseResume);
 }
 
 void TimerDisable()
 {
     enablePauseResume = false;
-    SetRtcRam(TIMER_STAT_SRAM, enablePauseResume);  
+    SetRtcRam(TIMER_STAT_SRAM, enablePauseResume);
 }
 
 bool GetTimerStatus()
@@ -370,7 +370,7 @@ void SetMode(uint8_t mode)
     if(md>=MODE_NUM)
             md = 0;
     SelectMode = md;
-    SetRtcRam(MODE_SRAM, md);    
+    SetRtcRam(MODE_SRAM, md);
 }
 
 void GetMode(uint8_t *mode)
@@ -380,7 +380,7 @@ void GetMode(uint8_t *mode)
 
 void SetPattern(uint8_t pattern)
 {
-    uint8_t pt = 0;
+    uint8_t pt = pattern;
     if(pt>=PATTERN_NUM)
         pt = 0;
     SelectPattern = pt;
@@ -409,12 +409,12 @@ inline static void checkUserButton()
         SetRtcRam(PATTERN_SRAM, SelectPattern);
     }
 
-    if( mode_sw ==1 && mode_sw_old ==0 )
+    if( mode_sw == 1 && mode_sw_old ==0 )
     {   
         SelectMode++;     
         if(SelectMode>=MODE_NUM)
             SelectMode = 0;
-        SetRtcRam(MODE_SRAM, SelectMode);    
+        SetRtcRam(MODE_SRAM, SelectMode);
     }
     pattern_sw_old = pattern_sw;
     mode_sw_old = mode_sw;

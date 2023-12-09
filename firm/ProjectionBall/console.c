@@ -136,6 +136,12 @@ void OnUartRx()
     }
 }
 
+void ClearBuffer()
+{
+    memset((void*)buffer,'\0',sizeof(buffer));
+    memset((void*)uartBuffer,'\0',sizeof(uartBuffer));
+}
+
 bool IsResetEnable()
 {
     return rstEnable;
@@ -155,7 +161,7 @@ static void consoleCheckDateTimeCommand()
         h=(uint8_t)(time/10000);
         m=(uint8_t)((time/100)%100);
         s=(uint8_t)(time%100);
-        //SetRtcTime(h,m,s);       
+        SetRtcTime(h,m,s);       
     }
     // Get Time    
     else if(strncmp(cmd, STR_GET_TIME, 4) == 0)

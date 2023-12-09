@@ -10,7 +10,7 @@
 #ifndef PROJECTIONBALL_H
 #define PROJECTIONBALL_H
 
-#define VER_STR     " v1.0"
+#define VER_STR     " v1.2"
 
 /* IO Pin Definitions */
 #define PIN_TX      0
@@ -42,6 +42,11 @@
 #define STOP_BITS   1
 #define PARITY      UART_PARITY_NONE
 
+/* I2C Setting */
+#define I2C_PORT i2c0
+#define I2C_SDA 4
+#define I2C_SCL 5
+
 /* For Control */
 #define ENCODER_BUFFER_SIZE	8
 #define ENABLE_RUNAWAY_DETECTION
@@ -65,6 +70,8 @@
 
 //#define DISABLE_MOTOR
 #define ENABLE_PROJECTION_ANGLE
+
+//#define ENABLE_CALIBRATION_MODE
 
 /* RTC Type */
 //#define USE_RTC_RV8803

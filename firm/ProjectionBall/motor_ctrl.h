@@ -14,7 +14,7 @@
 #define ENABLE_I
 
 #define KP	(8)		//v5:4 		//8:150us
-#define KD	(45)	//v5:100	//48:150us
+#define KD	(48)	//v5:100	//48:150us
 #ifdef ENABLE_I
 	#define IKI	(100)//IKI=1/KI //100:150us
 #endif
