@@ -78,5 +78,7 @@ void GetPattern(uint8_t *pattern);
 void TimerEnable();
 void TimerDisable();
 bool GetTimerStatus();
+void UpdateUserButton();
+
 
 #endif

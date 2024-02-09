@@ -131,28 +131,31 @@ void SetRtcTime(uint8_t h, uint8_t m, uint8_t s)
 
 void GetRtcTime(uint8_t *h, uint8_t *m, uint8_t *s)
 {
-    uint8_t rdat[3]={0};
+    uint8_t rdat[7]={0};
     uint8_t wdat[1]={0};
     
     wdat[0]=SD30XX_REG_SEC;
 	
 	i2c_write_blocking(I2C_PORT, SD30XX_ADDR, wdat, 1, true); 
-	i2c_read_blocking(I2C_PORT, SD30XX_ADDR, rdat, 3, false);
+	i2c_read_blocking(I2C_PORT, SD30XX_ADDR, rdat, 7, false);
 	
+    rdat[2]=rdat[2]&0x7F;
+
     *s=HEX2DEC(rdat[0]);
     *m=HEX2DEC(rdat[1]);
-    *h=HEX2DEC(rdat[2]&0x7F);
+    *h=HEX2DEC(rdat[2]);
     
     if(*s==59)
     {
 		i2c_write_blocking(I2C_PORT, SD30XX_ADDR, wdat, 1, true); 
-		i2c_read_blocking(I2C_PORT, SD30XX_ADDR, rdat, 3, false);
+		i2c_read_blocking(I2C_PORT, SD30XX_ADDR, rdat, 7, false);
         *s=HEX2DEC(rdat[0]);
         if(*s!=59)
         {
+            rdat[2]=rdat[2]&0x7F;
             //*s=HEX2DEC(rdat[0]);
             *m=HEX2DEC(rdat[1]);
-            *h=HEX2DEC(rdat[2]&0x7F);
+            *h=HEX2DEC(rdat[2]);
         }
     }
 }
@@ -201,9 +204,10 @@ void GetRtcDateTime(uint8_t *year, uint8_t *mon, uint8_t *day, uint8_t *hour, ui
     wdat[0]=SD30XX_REG_SEC;
 	i2c_write_blocking(I2C_PORT, SD30XX_ADDR, wdat, 1, true); 
 	i2c_read_blocking(I2C_PORT, SD30XX_ADDR, rdat, 7, false);
+    rdat[2]=rdat[2]&0x7F;
     *sec=HEX2DEC(rdat[0]);
     *min=HEX2DEC(rdat[1]);
-    *hour=HEX2DEC(rdat[2]&0x7F);
+    *hour=HEX2DEC(rdat[2]);
     //*wek=HEX2DEC(rdat[3]);
     *day=HEX2DEC(rdat[4]);
     *mon=HEX2DEC(rdat[5]);
@@ -216,9 +220,10 @@ void GetRtcDateTime(uint8_t *year, uint8_t *mon, uint8_t *day, uint8_t *hour, ui
         *sec=HEX2DEC(rdat[0]);
         if(*sec!=59)
         {
+            rdat[2]=rdat[2]&0x7F;
             //*sec=HEX2DEC(rdat[0]);
             *min=HEX2DEC(rdat[1]);
-            *hour=HEX2DEC(rdat[2]&0x7F);
+            *hour=HEX2DEC(rdat[2]);
             //*wek=HEX2DEC(rdat[3]);
             *day=HEX2DEC(rdat[4]);
             *mon=HEX2DEC(rdat[5]);
@@ -276,19 +281,19 @@ void GetRtcWeek(uint8_t *w)
 
 static void writeEnable()
 {
-    uint8_t en1[2] =    {SD30XX_REG_CTR1, 0x80};
-    uint8_t en23[2] =   {SD30XX_REG_CTR2, 0xFF};
+    uint8_t en1[2] =    {SD30XX_REG_CTR1, 0xFF};
+    uint8_t en23[2] =   {SD30XX_REG_CTR2, 0x80};
 
-	i2c_write_blocking(I2C_PORT, SD30XX_ADDR, en1, 2, false);
-    i2c_write_blocking(I2C_PORT, SD30XX_ADDR, en23, 2, false);
+	i2c_write_blocking(I2C_PORT, SD30XX_ADDR, en23, 2, false);    
+    i2c_write_blocking(I2C_PORT, SD30XX_ADDR, en1, 2, false);
 }
 
 static void writeDisable()
 {
-    uint8_t dis1[2] =   {SD30XX_REG_CTR1, 0x12};
-    uint8_t dis23[2] =  {SD30XX_REG_CTR2, 0x7B};
+    uint8_t dis1[2] =   {SD30XX_REG_CTR1, 0x7B};
+    uint8_t dis23[2] =  {SD30XX_REG_CTR2, 0x12};
 
-    i2c_write_blocking(I2C_PORT, SD30XX_ADDR, dis23, 2, false);
     i2c_write_blocking(I2C_PORT, SD30XX_ADDR, dis1, 2, false);
+    i2c_write_blocking(I2C_PORT, SD30XX_ADDR, dis23, 2, false);
 }
 #endif

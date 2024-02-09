@@ -77,6 +77,13 @@ static uint8_t  strShiftOld = 0;
 static uint8_t  allStrShiftFlg = 0;
 static uint8_t  strLength = 0;
 
+static bool pattern_sw_old = 1;
+static bool mode_sw_old = 1;
+static bool pattern_sw = 1;
+static bool mode_sw = 1;
+static bool pattern_update = false;
+static bool mode_update = false;
+
 inline static void checkUserButton();
 inline static void getPatternPath(int32_t *step, int32_t *allstep, int32_t *x, int32_t *y, bool *lsr);
 inline static void getStringPath(char *str, uint8_t *strcnt, int32_t *step, int32_t *allstep, int32_t *x, int32_t *y, bool *lsr);
@@ -272,7 +279,7 @@ void RestoreUserData()
     MotorCtrSetCenterPos(x_cen0, x_cen1);
     //printf("Calibration value X:%d, Y:%d \r\n", settingData.x_cen0, settingData.x_cen1);
 
-    if(strlen(settingData.userString)>0)
+    if(strlen(settingData.userString)>0 && settingData.userString[0]!=0xFF)
         strcpy(PathString, settingData.userString);
     else
         strcpy(PathString, "Hello");  
@@ -283,7 +290,22 @@ void RestoreUserData()
     GetRtcRam(MODE_SRAM, &SelectMode);
     sleep_ms(1);		  
     GetRtcRam(PATTERN_SRAM, &SelectPattern);
-    sleep_ms(1);	    
+    sleep_ms(1);
+
+    if( SelectMode >= MODE_NUM || SelectPattern >= PATTERN_NUM ) //RTC After Reset
+    {
+        SelectMode = 0;
+        SelectPattern = 0;
+        enablePauseResume = false;
+        SetRtcRam(MODE_SRAM, SelectMode);
+        sleep_ms(1);
+        SetRtcRam(PATTERN_SRAM, SelectPattern);  
+        sleep_ms(1);      
+        SetRtcRam(TIMER_STAT_SRAM, enablePauseResume);
+        sleep_ms(1);
+        SetProjectionAngle(0);
+    }
+
     GetRtcRam(TIMER_STAT_SRAM, (uint8_t*)&enablePauseResume); 
     sleep_ms(1);	
     GetRtcRam(PRJ_DEG_SRAM, (uint8_t*)&udeg);
@@ -392,32 +414,42 @@ void GetPattern(uint8_t *pattern)
     *pattern = SelectPattern;
 }
 
+
+
+void UpdateUserButton()
+{
+    pattern_sw = gpio_get(PIN_PATTERN);
+    mode_sw = gpio_get(PIN_MODE);
+    if(pattern_sw == 1 && pattern_sw_old==0 )
+        pattern_update = true;
+
+    if( mode_sw == 1 && mode_sw_old ==0 )
+        mode_update = true;
+
+    pattern_sw_old = pattern_sw;
+    mode_sw_old = mode_sw;
+}
+
 inline static void checkUserButton()
 {
-    static bool pattern_sw_old = 1;
-    static bool mode_sw_old = 1;
-    bool pattern_sw = gpio_get(PIN_PATTERN);
-    bool mode_sw = gpio_get(PIN_MODE);
-
-    //printf("::%d::%d::",pattern_sw,mode_sw);
-
-    if(pattern_sw == 1 && pattern_sw_old==0 )
+    if(pattern_update)
     {        
          SelectPattern++;
         if(SelectPattern>=PATTERN_NUM)
             SelectPattern = 0;
         SetRtcRam(PATTERN_SRAM, SelectPattern);
+        pattern_update = false;
     }
 
-    if( mode_sw == 1 && mode_sw_old ==0 )
+    if( mode_update )
     {   
         SelectMode++;     
         if(SelectMode>=MODE_NUM)
             SelectMode = 0;
         SetRtcRam(MODE_SRAM, SelectMode);
+        mode_update = false;
     }
-    pattern_sw_old = pattern_sw;
-    mode_sw_old = mode_sw;
+
 }
 
 inline static void updateDateTime()

@@ -10,7 +10,7 @@
 #ifndef PROJECTIONBALL_H
 #define PROJECTIONBALL_H
 
-#define VER_STR     " v1.2"
+#define VER_STR     " v1.3"
 
 /* IO Pin Definitions */
 #define PIN_TX      0
@@ -59,25 +59,23 @@
 #define ENABLE_IN_POS
 //#define ENABLE_STEP_CMD
 
+/* RTC Type */
+//#define USE_RTC_RV8803
+#define USE_RTC_SD30XX
 
 /* For Debug */
 //#define ENABLE_ENCODER_CHECK_MODE
 #define ENABLE_DEBUG_OUTPUT
 //#define ENABLE_DEBUG_INFO
 //#define ENABLE_SIN_CMD
-#define SIN_CMD_AMP		160
 //#define ENABLE_FLASH_TEST
+#define SIN_CMD_AMP		160
+
 
 //#define DISABLE_MOTOR
 #define ENABLE_PROJECTION_ANGLE
 
 //#define ENABLE_CALIBRATION_MODE
-
-/* RTC Type */
-//#define USE_RTC_RV8803
-#define USE_RTC_SD30XX
-
-
 
 
 #endif

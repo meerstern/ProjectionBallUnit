@@ -37,6 +37,7 @@
 #define T_LIMIT_MAXERR_P			+1000
 #define T_LIMIT_DIV					20	
 #define T_LIMIT_START_CNT			800
+#define T_LIMIT_START_CNT_HALF		(T_LIMIT_START_CNT/2)
 
 #ifdef ENABLE_RUNAWAY_DETECTION
 	#define MAX_ERR_COUNT			800
@@ -385,7 +386,16 @@ inline static void calcTrqCommand()
 #endif					
 	
 	//Torque Limit for suppress runaway	in start up
-	if(InitCount<T_LIMIT_START_CNT)
+	if( InitCount < T_LIMIT_START_CNT_HALF )
+	{
+		motorControl[0].trq_out=motorControl[0].trq_out/T_LIMIT_DIV;
+		motorControl[1].trq_out=0;
+		motorControl[0].x_sum = 0;
+		motorControl[1].x_sum = 0;
+		InitCount++;
+
+	}
+	else if(InitCount<T_LIMIT_START_CNT)
 	{
 		motorControl[0].trq_out=motorControl[0].trq_out/T_LIMIT_DIV;
 		motorControl[1].trq_out=motorControl[1].trq_out/T_LIMIT_DIV;

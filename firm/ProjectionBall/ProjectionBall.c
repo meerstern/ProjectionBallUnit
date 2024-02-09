@@ -76,15 +76,16 @@ void core1_main()
 		{
 			CtrlEventFlg = false;
 			MotorCtrlLoop();
+			UpdateUserButton();
 			if( IsResetEnable()==false)
 				watchdog_update();							
 		}
 	}
 }
 
-
 void core0_main()
 {	
+
 	core0Alarm = alarm_pool_create(0, 4);
 	alarm_pool_add_repeating_timer_ms(core0Alarm, 320, path_timer_callback, NULL, &path_timer);
 	while (true)
@@ -187,7 +188,8 @@ void ioInit()
 
 	//RTC Init
 	rtc_init();
-    
+  
+
 }
 
 int main()

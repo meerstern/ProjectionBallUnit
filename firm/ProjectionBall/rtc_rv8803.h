@@ -16,9 +16,7 @@
 #ifdef USE_RTC_RV8803
 
 
-#define I2C_PORT i2c0
-#define I2C_SDA 4
-#define I2C_SCL 5
+
 
 
 
